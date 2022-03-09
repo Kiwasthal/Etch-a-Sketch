@@ -1,34 +1,26 @@
-
 body {
     display: flex;
+    background-color: antiquewhite;
     justify-content: center;
     align-items: center;
+    width: 256px;
+    height: 256px;
 }
 
 .container {
-    margin-top: 250px;
-    color: aqua;
-    align-content: center;
-    justify-content: center;
-    padding: 15px 15px 10px 0px;
-    padding-left: 0px;
-    background-color: aqua;
-    width: 410px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 2px black solid;
-}
-
-.sketchRow {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    
+    background-color: burlywood;
+    flex-wrap: wrap ;
+    flex : 1;
+
 }
 
 .sketchBox {
-   width: 20px;
-   height: 20px;
-   background-color: white;
+    height: 16px;
+    width: 16px;
+    background-color: white;
+}
+
+.hover {
+    background-color: black;
 }

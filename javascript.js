@@ -3,23 +3,25 @@ const body = document.getElementsByTagName('body');
 //Creating dov-container to store all divs 
 const container = document.createElement('div')
 container.classList.add('container');
-console.log(container);
 // Append container to body 
 document.body.appendChild(container);
+//creating variable to store divs, used to "sketch"
+const divs = document.getElementsByClassName('sketchBox')
+const get = document.getElementById('sketchBoxs')
+//Creates a function to produce grid
 
-//Creates a function that takes height(x), width(y) and creates a grid based on those parameters 
+function changeColor(e) {
+    e.target.style.backgroundColor = 'black'
+}
 
-function gridSize(x,z){
-for (let i= 0; i < x ; i++) {
-    let divcontainer = document.createElement('div')   
-        divcontainer.classList.add('sketchRow')  
-        container.appendChild(divcontainer)   
-        for (let y = 0; y < z ; y++) {
-            let divchild = document.createElement('div')
-            divchild.classList.add('sketchBox')
-            divcontainer.appendChild(divchild)
-        }    
+function gridSize(size){
+for (let i= 0; i < size*size ; i++) {
+    let divBox = document.createElement('div')   
+    divBox.classList.add('sketchBox')  
+    // divBox.addEventListener('hover', changeColor )
+    container.appendChild(divBox)  
 }}
+//setting grid size for now
+gridSize(16)
 
-gridSize(20,20)
 
