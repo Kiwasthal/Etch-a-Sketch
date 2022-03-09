@@ -10,11 +10,11 @@ document.body.appendChild(container);
 //Creates a function that takes height(x), width(y) and creates a grid based on those parameters 
 
 function gridSize(x,z){
-for (i= 0; i < x ; i++) {
+for (let i= 0; i < x ; i++) {
     let divcontainer = document.createElement('div')   
-        divcontainer.classList.add('sktetchRow')  
+        divcontainer.classList.add('sketchRow')  
         container.appendChild(divcontainer)   
-        for (y = 0; y < z ; y++) {
+        for (let y = 0; y < z ; y++) {
             let divchild = document.createElement('div')
             divchild.classList.add('sketchBox')
             divcontainer.appendChild(divchild)

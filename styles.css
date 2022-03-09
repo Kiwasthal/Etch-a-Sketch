@@ -1,0 +1,34 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 250px;
+    color: aqua;
+    align-content: center;
+    justify-content: center;
+    padding: 15px 15px 10px 0px;
+    padding-left: 0px;
+    background-color: aqua;
+    width: 410px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 2px black solid;
+}
+
+.sketchRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    
+}
+
+.sketchBox {
+   width: 20px;
+   height: 20px;
+   background-color: white;
+}
