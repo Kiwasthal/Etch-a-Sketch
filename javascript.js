@@ -1,10 +1,26 @@
 //Creating all parts of HTML using JS
 const body = document.getElementsByTagName('body');
-//Creating dov-container to store all divs 
+//Creating a board to fit grid and interface
+const board = document.createElement('div')
+board.classList.add('board')
+//Creating a  div to fit buttons
+const holderLeft = document.createElement('div')
+holderLeft.classList.add('holderLeft')
+//Creating buttons
+const clearButton = document.createElement('button')
+clearButton.textContent = 'Clear'
+holderLeft.appendChild(clearButton)
+//Creating div-container to store all etching boxes
 const container = document.createElement('div')
 container.classList.add('container');
+//Appending children
+document.body.appendChild(board)
+board.appendChild(holderLeft)
+board.appendChild(container);
+
+container.classList.add('container');
 // Append container to body 
-document.body.appendChild(container);
+
 
 
 //Creates a function to produce grid
