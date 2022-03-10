@@ -43,7 +43,7 @@ body{
     border-left: 0px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
