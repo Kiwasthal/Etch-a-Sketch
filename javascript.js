@@ -5,23 +5,24 @@ const container = document.createElement('div')
 container.classList.add('container');
 // Append container to body 
 document.body.appendChild(container);
-//creating variable to store divs, used to "sketch"
-const divs = document.getElementsByClassName('sketchBox')
-const get = document.getElementById('sketchBoxs')
+
+
 //Creates a function to produce grid
 
-function changeColor(e) {
-    e.target.style.backgroundColor = 'black'
-}
+function createGrid(size) {
+    for (let i = 0; i < size ; i++){
+        const divRow = document.createElement('div');
+        divRow.classList.add('row')
+        
+            for (let y = 0 ; y <size ; y++){
+                const divBox = document.createElement('div');
+                divBox.classList.add('box')
+                divBox.addEventListener('mouseenter', function(e) {
+                    e.target.style.backgroundColor = 'black';
+                })
+                divRow.appendChild(divBox)
+            }
+        container.appendChild(divRow)
+    }}
 
-function gridSize(size){
-for (let i= 0; i < size*size ; i++) {
-    let divBox = document.createElement('div')   
-    divBox.classList.add('sketchBox')  
-    // divBox.addEventListener('hover', changeColor )
-    container.appendChild(divBox)  
-}}
-//setting grid size for now
-gridSize(16)
-
-
+    createGrid(16)
