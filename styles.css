@@ -23,13 +23,13 @@ body{
 
 .holderLeft {
     display: flex;
-    background-color: rgb(180, 188, 195);
+    background-color: rgb(158, 152, 132);
     flex-direction: column;
     justify-content: flex-start ;
     align-items: center;
-    width: 150px;
+    width: 250px;
     height:auto;
-    border: 2px sienna solid;
+    border: 2px rgb(148, 122, 110) solid;
     border-right: 0px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -43,25 +43,29 @@ body{
     align-items: center;   
     flex-wrap: wrap; 
     padding-right: 30px;
-    border: 2px solid sienna;
+    border: 2px solid rgb(148, 122, 110);
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    
 }
 
 
 
 
-.box {
+/* .box {
     background-color: azure;
-    height: 30px;
-    width: 30px;
-}
+    height: 32px;
+    width: 32px;
+} */
 
 button {
-    width: 80px;
-    background-color: rgb(197, 126, 93) ;
-    height: 30px;
+    width: 150px;
+    background-color: rgb(138, 132, 130) ;
+    height: 40px;
     margin-top: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 2px solid rgb(107, 94, 88);
+    border-radius: 20px;
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: 18px;
 }

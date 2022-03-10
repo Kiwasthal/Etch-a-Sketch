@@ -29,10 +29,13 @@ function createGrid(size) {
     for (let i = 0; i < size ; i++){
         const divRow = document.createElement('div');
         divRow.classList.add('row')
-        
+        let boxSize = 32/(size / 16)
             for (let y = 0 ; y <size ; y++){
                 const divBox = document.createElement('div');
                 divBox.classList.add('box')
+                divBox.style.width = `${boxSize}px`
+                divBox.style.height = `${boxSize}px`
+                divBox.style.backgroundColor = 'white'
                 divBox.addEventListener('mouseenter', function(e) {
                     e.target.style.backgroundColor = 'black';
                 })
@@ -41,4 +44,15 @@ function createGrid(size) {
         container.appendChild(divRow)
     }}
 
-    createGrid(16)
+    //Create a function to clear grid with button click
+
+
+createGrid(16)
+
+    let pixel = document.querySelectorAll(".box")
+console.log(pixel)
+
+clearButton.addEventListener('click', function() {
+    for (let i = 0; i< pixel.length ; i++) {
+    pixel[i].style.backgroundColor = 'white'
+}})
