@@ -12,8 +12,11 @@ const board = document.createElement('div')
 board.classList.add('board')
 //Creating a  div to fit buttons
 const holderLeft = document.createElement('div')
+const holderRigt = document.createElement('div')
 holderLeft.classList.add('holderLeft')
-//Creating buttons
+holderRigt.classList.add('holderRight')
+//Right side buttons
+//Change grid size and clear current grid
 const clearButton = document.createElement('button')
 const gridZero = document.createElement('button')
 const gridOne = document.createElement('button')
@@ -32,6 +35,11 @@ holderLeft.appendChild(gridOne)
 holderLeft.appendChild(gridTwo)
 holderLeft.appendChild(gridThree)
 holderLeft.appendChild(gridFour)
+//Left side buttons
+const colorBtn = document.createElement('button')
+colorBtn.textContent = 'Colorful'
+holderRigt.appendChild(colorBtn)
+
 //Creating div-container to store all etching boxes
 const container = document.createElement('div')
 container.classList.add('container');
@@ -39,10 +47,11 @@ container.classList.add('container');
 document.body.appendChild(board)
 board.appendChild(holderLeft)
 board.appendChild(container);
+board.appendChild(holderRigt)
 container.classList.add('container');
 // Append container to body 
 
-createGrid(32)
+createGrid(16)
 
 //Creates a function to produce grid
 
@@ -69,15 +78,6 @@ function createGrid(size) {
 
 
 
-    let pixel = document.querySelectorAll(".box")
-console.log(pixel)
-
-//Adding a clear button
-
-clearButton.addEventListener('click', function() {
-    for (let i = 0; i< pixel.length ; i++) {
-    pixel[i].style.backgroundColor = 'white'
-}})
 
 //Addin buttons that create differenc divs 
 gridZero.addEventListener('click',() =>{ remove(16)})
@@ -86,10 +86,35 @@ gridTwo.addEventListener('click', () =>{ remove(64)})
 gridThree.addEventListener('click', () =>{ remove(128)})
 gridFour.addEventListener('click', () =>{ remove(256)}) 
 
-
+//Function to create a new grid , removes all container content and uses the grid generator function
 function remove(size) {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
       }
     createGrid(size) 
 } 
+
+
+//Removes all coloured pixels from the grid , callback to gridButtons
+
+clearButton.addEventListener('click', function() {
+    let pixel = document.querySelectorAll(".box")
+    for (let i = 0; i< pixel.length ; i++) {
+    pixel[i].style.backgroundColor = 'white'
+}})
+
+colorBtn.addEventListener('click', colorful )
+
+
+function colorful() {
+    let pixel = document.querySelectorAll(".box")
+    for (let i = 0; i< pixel.length ; i++) {
+        pixel[i].addEventListener('mouseenter', function() {
+            let red = Math.floor(Math.random()*256)
+            let green = Math.floor(Math.random()*256)
+            let blue = Math.floor(Math.random()*256)
+            pixel[i].style.backgroundColor = `rgb(${red},${green},${blue})` 
+        })
+}}
+
+
