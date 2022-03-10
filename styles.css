@@ -5,8 +5,8 @@
 }
 
 body{
-    display: flex;
-    font-family: sans-serif;
+   
+    font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
     width: 100%;
     min-height: 100vh;
@@ -18,7 +18,9 @@ body{
 .board {
     display:flex ;
     justify-content: center;
-    
+    width: 1000px;
+    margin-left: 400px;
+    margin-top: 150px;
 }
 
 .holderLeft {
@@ -49,8 +51,11 @@ body{
     
 }
 
-
-
+.headcont {
+    display: flex;
+    justify-content: center;
+    
+}
 
 /* .box {
     background-color: azure;
