@@ -15,10 +15,13 @@ body{
     align-items: center;
 }
 
+/* Board contains the three basic flexable items  */
+
 .board {
     display:flex ;
     justify-content: center;
     margin-top: 150px;
+    filter: drop-shadow(0 0 2rem black);
 }
 
 .holderLeft {
@@ -62,9 +65,10 @@ body{
 }
 
 .headcont {
+    padding: 10px;
     display: flex;
     justify-content: center;
-    
+    padding-bottom: 0px;    
 }
 
 
@@ -78,7 +82,19 @@ button {
     color: aliceblue;
     font-weight: bolder;
     font-size: 18px;
+    transition: all 1.00s ease;
 }
+
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+
+
+/* Classes used for scaling  */
 
 .nine  {
    background-color: rgb(0, 0, 0);
@@ -113,13 +129,18 @@ button {
 }
 
 .one{
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(208, 208, 208);
 }
 
 .zero{
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(234, 234, 234);
 }
 
 .box {
     color: black;
+}
+
+.footer {
+    margin-left: 850px;
+    margin-top: 100px;
 }

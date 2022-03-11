@@ -23,27 +23,43 @@ const gridOne = document.createElement('button') ;
 const gridTwo = document.createElement('button') ;
 const gridThree = document.createElement('button') ;
 const gridFour = document.createElement('button') ;
+//Right side buttons
 clearButton.textContent = 'Clear' ;
 gridZero.textContent = '16px' ;
 gridOne.textContent = "32px" ;
 gridTwo.textContent = "64px" ;
 gridThree.textContent = "128px" ;
 gridFour.textContent = "256px" ;
+//Adding classes to all right side buttons
+clearButton.classList.add('button')
+gridZero.classList.add('button')
+gridOne.classList.add('button')
+gridTwo.classList.add('button')
+gridThree.classList.add('button')
+gridFour.classList.add('button')
+//Appending left side buttons
 holderLeft.appendChild(clearButton) ;
 holderLeft.appendChild(gridZero) ;
 holderLeft.appendChild(gridOne) ;
 holderLeft.appendChild(gridTwo) ;
 holderLeft.appendChild(gridThree) ;
 holderLeft.appendChild(gridFour) ;
-//Left side buttons
+//Right side buttons
 const colorBtn = document.createElement('button') ;
 const greyBtn = document.createElement('button') ;
 const eraseBtn = document.createElement('button') ;
 const addBtn = document.createElement('button') ;
+//Addin text to right side buttons
 colorBtn.textContent = 'Colorful' ;
 greyBtn.textContent = 'Grey' ;
 eraseBtn.textContent = 'Eraser' ;
-addBtn.textContent = 'Scaling'
+addBtn.textContent = 'Scaling' ;
+//Addin classes to all right side buttons
+colorBtn.classList.add('button')
+greyBtn.classList.add('button')
+eraseBtn.classList.add('button')
+addBtn.classList.add('button')
+//Appending right side buttons
 holderRigt.appendChild(colorBtn) ;
 holderRigt.appendChild(greyBtn) ;
 holderRigt.appendChild(eraseBtn) ;
@@ -56,8 +72,12 @@ document.body.appendChild(board) ;
 board.appendChild(holderLeft) ;
 board.appendChild(container) ;
 board.appendChild(holderRigt) ;
-container.classList.add('container');
-// Append container to body 
+container.classList.add('container'); //Append container 
+//Create a footer
+const footer = document.createElement('div')
+footer.textContent = 'Copyright © Kiwasthal'
+footer.classList.add('footer')
+document.body.appendChild(footer)
 
 //starting function
 createGrid(16)
@@ -99,7 +119,7 @@ function remove(size) {
       }
     createGrid(size) 
 }   
-
+//Button listeners
 //Changes all pixels to backgroundColor White
 
 clearButton.addEventListener('click', function() {
@@ -107,8 +127,6 @@ clearButton.addEventListener('click', function() {
     for (let i = 0; i< pixel.length ; i++) { 
     pixel[i].style.backgroundColor = 'white' ;
 }})
-
-//Generates different colors when mouse enters a pixel 
 
 colorBtn.addEventListener('click', colorful ) ;
 
@@ -143,7 +161,7 @@ function erase(){
 }}
 
 
-
+//Callback for greyBtn
 
 function gradient() {
     let start = 256
@@ -156,6 +174,7 @@ function gradient() {
         }
     )}}
 
+//Callback for scaleColorBtn
 
 function scale() {
         let pixel = document.querySelectorAll(".box") ;
@@ -163,7 +182,8 @@ function scale() {
             pixel[i].addEventListener('mouseenter', addClasses) ;
         }}
 
-        
+//Callback for  scale function
+
         function addClasses(e){
             
         if (e.target.classList.contains('eight')) {
@@ -197,4 +217,27 @@ function scale() {
             e.target.classList.add('zero')
             e.target.style.backgroundColor = 'rgb(234, 234, 234)' ;
         }
+}
+
+//Creating button animation
+
+
+const buttons = document.querySelectorAll('.button')
+
+function addBtnListener(array){
+    for (i=0 ; i < array.length ;  i++ )  {
+        array[i].addEventListener('mouseover', function(e){
+            e.target.classList.add('playing')
+        } )
+    }
+}
+
+addBtnListener(buttons)
+
+buttons.forEach( button => button.addEventListener('transitionend',removeTransition ));
+
+function removeTransition(e){
+    if (e.propertyName !== 'transform' ) return;
+    console.log(this)
+    this.classList.remove('playing')
 }
